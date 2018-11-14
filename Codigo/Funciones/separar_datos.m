@@ -26,16 +26,16 @@ end
 if(opcion==2)
 	indices_validacion=unique(randi([1 numero_datos],round(numero_datos*0.15),1));
 	for i=1:round(numero_datos*0.15)
-		C_V(i,1)=entradas(indices_validacion(i,1));
-		T_V(i,1)=target(indices_validacion(i,1));
+		C_V(i,1)=entradas(indices_validacion(i,1),1);
+		T_V(i,1)=target(indices_validacion(i,1),1);
 		entradas(indices_validacion(i,1))=[];
 		target(indices_validacion(i,1))=[];
 	end
 	numero_datos=numero_datos-round(numero_datos*0.15);
 	indices_validacion=unique(randi([1 numero_datos],round(numero_datos*0.15),1));
 	for i=1:round(numero_datos*0.15)
-		C_P(i,1)=entradas(indices_validacion(i,1));
-		T_P(i,1)=target(indices_validacion(i,1));
+		C_P(i,1)=entradas(indices_validacion(i,1),1);
+		T_P(i,1)=target(indices_validacion(i,1),1);
 		entradas(indices_validacion(i,1))=[];
 		target(indices_validacion(i,1))=[];
 	end
