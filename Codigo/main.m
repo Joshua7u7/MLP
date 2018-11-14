@@ -44,12 +44,12 @@ num_val=input('Numero maximo de incrementos consecutivos del error de epoca de v
 %Fin del modulo 1f%
 
 %1g Division del dataset en 3%
-opcion=input('Escoja la opcion que guste: \n 1. 80%-10%-10% \n 2. 70%-15%-15% \n');
+disp('Escoja la opcion que guste para la division del dataset: ');
+disp('1. 80%-10%-10%');
+disp('2. 70%-15%-15%');
+opcion=input(' ');
 [conjunto_entrenamiento,conjunto_validacion,conjunto_prueba,target_entrenamiento,target_validacion,target_prueba]=separar_datos(datos_entrada,targets,opcion,filas_entrada);
 %Fin del modulo 1g%
 
-conjunto_prueba
-conjunto_validacion
-conjunto_entrenamiento
 
 
