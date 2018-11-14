@@ -14,4 +14,3 @@ archivo_entrada=strcat(ruta,archivo_entrada);
 targets=importdata(archivo_entrada);
 %Fin de la peticion de entradas%
 
-suma(3,5)
