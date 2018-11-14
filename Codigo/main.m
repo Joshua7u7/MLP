@@ -29,7 +29,9 @@ end
 
 % 1d Pedir vectores de arquitectura%
 vector_arquitectura=input('Vector de arquitectura: ');
+[uno,tam_vector_arquitectura]=size(vector_arquitectura);
 vector_funciones=input('Vector de funciones: ');
+[uno,numero_capas]=size(vector_funciones);
 %Fin del modulo 1d%
 
 % 1e Pedir valor del factor de aprendizaje%
@@ -50,6 +52,17 @@ disp('2. 70%-15%-15%');
 opcion=input(' ');
 [conjunto_entrenamiento,conjunto_validacion,conjunto_prueba,target_entrenamiento,target_validacion,target_prueba]=separar_datos(datos_entrada,targets,opcion,filas_entrada);
 %Fin del modulo 1g%
+
+
+% 2. Se inician los valores aleatorios entre -1 y 1%
+capas=cell(numero_capas,2);
+for i=1:tam_vector_arquitectura-1
+	capas(i,1)=-1+2*rand(vector_arquitectura(1,i+1),vector_arquitectura(1,i));
+	capas(i,2)=-1+2*rand(vector_arquitectura(i+1),1);
+end
+%Final del modulo 2%
+
+
 
 
 
