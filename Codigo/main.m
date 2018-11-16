@@ -39,7 +39,7 @@ factor_aprendizaje=input('Ingrese el factor de aprendizaje: ');
 %Fin del modulo 1e%
 
 %1f valores de las condiciones de finalizacion%
-epocas=input('Numero de epocas: ');
+epocas_totales=input('Numero de epocas: ');
 error_epoch_max=input('Senal de error: ');
 epoch_val=input('Cada cuantas iteraciones se llevara a cabo una epoca de validacion: ');
 num_val=input('Numero maximo de incrementos consecutivos del error de epoca de validacion: ');
@@ -55,13 +55,23 @@ opcion=input(' ');
 
 
 % 2. Se inician los valores aleatorios entre -1 y 1%
-capas=cell(numero_capas,2);
+pesos=cell(numero_capas,1);
+bias=cell(numero_capas,1);
 for i=1:tam_vector_arquitectura-1
-	capas(i,1)=-1+2*rand(vector_arquitectura(1,i+1),vector_arquitectura(1,i));
-	capas(i,2)=-1+2*rand(vector_arquitectura(i+1),1);
+	pesos(i,1)=-1+2*rand(vector_arquitectura(1,i+1),vector_arquitectura(1,i));
+	bias(i,1)=-1+2*rand(vector_arquitectura(i+1),1);
 end
 %Final del modulo 2%
 
+% Comenzando el entrenamiento %
+Salida_iteracion=0;
+%for epoca=1:epocas_totales
+	for iteracion=1:size(conjunto_entrenamiento,1)
+		Salida_iteracion=feedFordward(pesos,conjunto_entrenamiento(iteracion),bias,numero_capas,vector_funciones);
+		Salida_iteracion
+	end
+%end
+% Fin del entrenamiento %
 
 
 
