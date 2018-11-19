@@ -18,8 +18,8 @@ epoch_val=input('Cada cuantas iteraciones se llevara a cabo una epoca de validac
 num_val=input('Numero maximo de incrementos consecutivos del error de epoca de validacion:\n');
 disp('Escoja la opcion que guste para la division del dataset:\n');
 disp('1. 80%-10%-10%');
-disp('2. 70%-15%-15%\n');
-opcion=input(' ');
+disp('2. 70%-15%-15%');
+opcion=input('\n');
 [C_E,C_V,C_P,T_E,T_V,T_P]=separar_datos(p,t,opcion,filas_entrada);
 [x_C_E,y_C_E]=size(C_E);
 [x_C_V,y_C_V]=size(C_V);
@@ -45,7 +45,7 @@ sumaerror=0;
             for i=2:y-1
                 a{i}=Funcion(V2(i),W{i},a{i-1},b{i});
             end
-            e(dato)=t(C_V(dato))-a{y2};
+            e(dato)=T_V(dato)-a{y2};
         end    
         sumaerror=sum(e); %Condicion de finalizacion%       
         Error_validacion(Epoca)=sumaerror/x_C_V;
@@ -71,7 +71,7 @@ sumaerror=0;
         for i=2:y-1
             a{i}=Funcion(V2(i),W{i},a{i-1},b{i});
         end
-        e(dato)=t(C_E(dato))-a{y2};
+        e(dato)=T_E(dato)-a{y2};
 
         S{y2}=Funcion2(V2(y2),0,0,a{y2},t(C_E(dato)));
         j=y2-1;
@@ -105,7 +105,7 @@ for dato=1:x_C_P
             for i=2:y-1
                 a{i}=Funcion(V2(i),W{i},a{i-1},b{i});
             end
-            e(dato)=t(C_P(dato))-a{y2};
+            e(dato)=T_P(dato)-a{y2};
 end
 sumaerror=sum(e);
 Error_Prueba=sumaerror/x_C_P;
