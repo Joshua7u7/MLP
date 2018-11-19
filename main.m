@@ -1,8 +1,8 @@
 
+addpath("./Codigo/Funciones/")
 
-
-p = double(dataset('File', 'entrada3.txt'));
-t = double(dataset('File' , 'targets3.txt'));
+p = importdata('Codigo/Archivos/input_#1.txt');
+t = importdata('Codigo/Archivos/target_#1.txt');
 [filas_entrada,columnas_entrada]=size(p);
 [filas_target,columnas_target]=size(t);
 
