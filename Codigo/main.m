@@ -80,7 +80,7 @@ while(eleccion==1)
 			suma_errores=0;
 			for iteracion=1:size(conjunto_validacion,1)
 				Salida_iteracion=feedFordward(pesos,conjunto_validacion(iteracion),bias,numero_capas,vector_funciones);
-				suma_error=suma_error+(target_validacion(iteracion)-Salida_iteracion{numero_capas+1})^2;
+				suma_error=suma_error+(target_validacion(iteracion)-Salida_iteracion{numero_capas+1});
 			end
 			error_epoca_val(contador_validacion)=suma_error/filas_entrada;
 			
@@ -105,7 +105,7 @@ while(eleccion==1)
 	    	fprintf(1,'---------------------');
 			for iteracion=1:size(conjunto_entrenamiento,1)
 				Salida_iteracion=feedFordward(pesos,conjunto_entrenamiento(iteracion),bias,numero_capas,vector_funciones);
-				error_it=(target_entrenamiento(iteracion)-Salida_iteracion{numero_capas+1})^2;	
+				error_it=(target_entrenamiento(iteracion)-Salida_iteracion{numero_capas+1});	
 				suma_error=suma_error+error_it;
 				%Salida_iteracion{numero_capas+1}
 				[pesos,bias]=backpropagation(pesos,bias,error_it,vector_arquitectura,vector_funciones,Salida_iteracion,factor_aprendizaje);
@@ -113,7 +113,7 @@ while(eleccion==1)
 			fprintf(1,'---------------------');
 			Error=(suma_error/size(conjunto_entrenamiento,1))
 
-			if Error<error_epoch_max
+			if abs(Error)<error_epoch_max
 				band=1;
 				fprintf(1,'Salida exitosa con el error %d\n',Error);
 				break;
