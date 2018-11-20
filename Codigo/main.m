@@ -76,7 +76,7 @@ while(eleccion==1)
 	inicio=1;
 	for epoca=inicio:epocas_totales
 
-		if mod(epoca,num_val)==0
+		if mod(epoca,epoch_val)==0
 			suma_errores=0;
 			for iteracion=1:size(conjunto_validacion,1)
 				Salida_iteracion=feedFordward(pesos,conjunto_validacion(iteracion),bias,numero_capas,vector_funciones);
