@@ -80,7 +80,7 @@ while(eleccion==1)
 			suma_errores=0;
 			for iteracion=1:size(conjunto_validacion,1)
 				Salida_iteracion=feedFordward(pesos,conjunto_validacion(iteracion),bias,numero_capas,vector_funciones);
-				suma_error=suma_error+(target_validacion(iteracion)-Salida_iteracion{numero_capas+1});
+				suma_error=suma_error+(target_validacion(iteracion)-Salida_iteracion{numero_capas+1})^2;
 			end
 			error_epoca_val(contador_validacion)=suma_error/filas_entrada;
 			
