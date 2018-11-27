@@ -6,16 +6,16 @@ function [Pesos,Bias]=backpropagation(pesos,bias,error_i,arquitectura,funciones,
 	derivada=derivada_funcion_activacion(funciones(1,total_capas),arquitectura(size(arquitectura,2)),salida{total_capas+1});
 	S{total_capas}=-2*derivada*error_i;
 
-	for capa=total_capas:2
+	for capa=total_capas:-1:2
 		derivada=derivada_funcion_activacion(funciones(1,capa-1),arquitectura(1,capa),salida{capa});
 		S{capa-1}=derivada*transpose(pesos{capa})*S{capa};
 	end
 	%Final de sensitividades%
 
 	% Actualizando pesos y bias%
-	for i=total_capas:2
-		pesos{i}=pesos{i}-factor_a*S{i}*transpose(salida{i-1});
-		bias{i}=bias{i}-factor_a*S{i};
+	for it=total_capas:-1:1
+		pesos{it}=pesos{it}-factor_a*S{it}*transpose(salida{it});
+		bias{it}=bias{it}-factor_a*S{it};
 	end
 	%Finaliza actualizacion%
 	Pesos=pesos;
